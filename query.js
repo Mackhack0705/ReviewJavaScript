@@ -25,7 +25,7 @@ const data = {
   },
   B: {
     Subjects: ["English", "Physics", "Chemistry"],
-    Faculty: ["Mary Adams", "Michael Clark", "Sarah Evans"],
+    Faculty: ["Mary Adams", "Michael Clark", "Sarah Evans","John Smith"],
     "Start Date": "2023-08-15",
     "End Date": "2023-12-31",
     Branches: {
@@ -49,7 +49,7 @@ const data = {
   },
   C: {
     Subjects: ["Computer Science", "Economics", "Psychology"],
-    Faculty: ["George Lee", "Helen Davis", "Ivy Martin"],
+    Faculty: ["George Lee", "Helen Davis", "Ivy Martin","John Smith"],
     "Start Date": "2023-09-15",
     "End Date": "2023-12-31",
     Branches: {
@@ -104,7 +104,36 @@ const data = {
 
 // console.log(dates);
 // Question 4
-const progAData = data.A.Branches["Branch A"].total;
-console.log(progAData.completed);
-console.log(progAData.joinedNew);
+// const progAData = data.A.Branches["Branch A"].total;
+// console.log(progAData.completed);
+// console.log(progAData.joinedNew);
 
+// Question 5
+// let commonFaculty = [];
+// data.A.Faculty.forEach((facultyA) => {
+//   const isCommonFaculty = data.B.Faculty.includes(facultyA) && data.C.Faculty.includes(facultyA);
+//   if(isCommonFaculty) commonFaculty.push(facultyA);
+// });
+
+// if(commonFaculty.length == 0) {
+//   console.log('no common faculty');
+// } else {
+//   console.log(commonFaculty);
+// }
+
+// Question 6
+
+const branchData = Object.values(data).flatMap((program) => {
+  return Object.values(program.Branches);
+})
+
+console.log(branchData)
+
+const bdata = branchData.map((Branches) => {
+  return (Branches.total);
+});
+
+console.log(bdata);
+bdata.map((datas) => {
+  console.log(datas.completed)
+})
